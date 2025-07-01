@@ -79,7 +79,7 @@ export default function PileCalculator() {
     const phi = parseFloat(updated[index].phi);
     const cohesion = parseFloat(updated[index].cohesion);
     const thickness = parseFloat(updated[index].thickness);
-    const gamma = parseFloat(updated[index].unitWeight);
+    // const gamma = parseFloat(updated[index].unitWeight);
 
     if (phi) {
       updated[index].Nq = interpolate(phi, angleData, 'Nq');
