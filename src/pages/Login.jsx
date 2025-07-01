@@ -1,7 +1,9 @@
+// Login.js
 import React, { useState } from 'react';
 import { signInWithEmailAndPassword, signInWithPopup } from 'firebase/auth';
 import { auth, provider } from '../firebase';
 import { useNavigate } from 'react-router-dom';
+import { Container, Title, Input, Button, Text, Link } from './Login.styles';
 
 const Login = () => {
   const [email, setEmail] = useState('');
@@ -27,14 +29,17 @@ const Login = () => {
   };
 
   return (
-    <div style={{ textAlign: 'center' }}>
-      <h2>Login</h2>
-      <input placeholder="Email" value={email} onChange={e => setEmail(e.target.value)} /><br />
-      <input type="password" placeholder="Password" value={password} onChange={e => setPassword(e.target.value)} /><br />
-      <button onClick={handleLogin}>Login</button><br /><br />
-      <button onClick={handleGoogleLogin}>Login with Google</button><br /><br />
-      <p>Don't have an account? <a href="/">Sign Up</a></p>
-    </div>
+    <Container>
+      <Title>Login</Title>
+      <Input placeholder="Email" value={email} onChange={e => setEmail(e.target.value)} />
+      <br />
+      <Input type="password" placeholder="Password" value={password} onChange={e => setPassword(e.target.value)} />
+      <br />
+      <Button onClick={handleLogin}>Login</Button>
+      <br />
+      <Button google onClick={handleGoogleLogin}>Login with Google</Button>
+      <Text>Don't have an account? <Link href="/">Sign Up</Link></Text>
+    </Container>
   );
 };
 
