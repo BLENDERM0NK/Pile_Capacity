@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Navbar from '../components/Navbar';
 import {
   Container, Title, FormGroup, LayerContainer, LayerTitle,
   Info, CalculationResult, MaxOverburdenBox, Button, AddLayerButton
@@ -190,23 +191,25 @@ for (let i = 0; i < updated.length; i++) {
   };
 
   return (
-  <Container>
-    <Title>Pile Foundation Calculator</Title>
+  <>
+    <Navbar />
+    <Container>
+      <Title>Pile Foundation Calculator</Title>
 
-    <FormGroup>
-      <label>Diameter (m): <input name="diameter" type="number" value={pile.diameter} onChange={handlePileChange} /></label>
-      <label>Length (m): <input name="length" type="number" value={pile.length} onChange={handlePileChange} /></label>
-      <label>Cap Thickness (m): <input name="capThickness" type="number" value={pile.capThickness} onChange={handlePileChange} /></label>
-      <label>Critical Depth Factor:
-        <select name="factor" value={pile.factor} onChange={handlePileChange}>
-          {[15, 16, 17, 18, 19, 20].map(f => <option key={f} value={f}>{f}</option>)}
-        </select>
-      </label>
-      <label>Critical Depth: <input value={pile.criticalDepth} readOnly /></label>
-    </FormGroup>
+      <FormGroup>
+        <label>Diameter (m): <input name="diameter" type="number" value={pile.diameter} onChange={handlePileChange} /></label>
+        <label>Length (m): <input name="length" type="number" value={pile.length} onChange={handlePileChange} /></label>
+        <label>Cap Thickness (m): <input name="capThickness" type="number" value={pile.capThickness} onChange={handlePileChange} /></label>
+        <label>Critical Depth Factor:
+          <select name="factor" value={pile.factor} onChange={handlePileChange}>
+            {[15, 16, 17, 18, 19, 20].map(f => <option key={f} value={f}>{f}</option>)}
+          </select>
+        </label>
+        <label>Critical Depth: <input value={pile.criticalDepth} readOnly /></label>
+      </FormGroup>
 
-    <h3>Soil Layers</h3>
-    <AddLayerButton onClick={addLayer}>Add Layer</AddLayerButton>
+      <h3>Soil Layers</h3>
+      <AddLayerButton onClick={addLayer}>Add Layer</AddLayerButton>
 
     {layers.map((layer, index) => {
       const Ap = (Math.PI / 4 * pile.diameter * pile.diameter).toFixed(4);
@@ -258,6 +261,7 @@ for (let i = 0; i < updated.length; i++) {
       </MaxOverburdenBox>
     )}
   </Container>
+  </>
 );
 
 }
