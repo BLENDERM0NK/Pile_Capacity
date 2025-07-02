@@ -234,12 +234,14 @@ for (let i = 0; i < updated.length; i++) {
           {layer.endBearing !== null && (
             <CalculationResult type="bearing">
               <h4>End Bearing: {layer.endBearing} kN</h4>
+              <h5>Recommended End Bearing: {(layer.endBearing / 2.5).toFixed(2)} kN</h5>
               <p>Ap = {Ap} m² | Pd = {layer.Pd} | Nq = {layer.Nq} | Nγ = {layer.Ng} | C = {layer.cohesion}</p>
             </CalculationResult>
           )}
           {layer.skinFriction !== null && (
             <CalculationResult type="skin">
               <h4>Skin Friction: {layer.skinFriction} kN</h4>
+              <h5>Recommended Skin Friction: {(layer.skinFriction/2.5).toFixed(2)} kN</h5>
               <p>δ = {delta} rad | Asi = {layer.Asi} | Ki = {layer.Ki} | Pdi = {layer.Pdi} | α = {layer.alpha}</p>
             </CalculationResult>
           )}
