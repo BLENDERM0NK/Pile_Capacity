@@ -194,7 +194,7 @@ for (let i = 0; i < updated.length; i++) {
   <>
     <Navbar />
     <Container>
-      <Title>Pile Foundation Calculator</Title>
+      <Title>Pile Foundation Capacity</Title>
 
       <FormGroup>
         <label>Diameter (m): <input name="diameter" type="number" value={pile.diameter} onChange={handlePileChange} /></label>
