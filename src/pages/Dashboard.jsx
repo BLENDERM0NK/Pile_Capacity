@@ -1,21 +1,23 @@
 // src/pages/Dashboard.jsx
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-// import './Dashboard.css'; // optional, for styling
+import styles from './dashboard.style';
 
 function Dashboard() {
   const navigate = useNavigate();
+  const [isHovered, setIsHovered] = React.useState(false);
 
   return (
-    <div className="dashboard">
-      <h2>Welcome to Engineering Tools</h2>
+    <div style={styles.container}>
+      <h2 style={styles.heading}>Welcome to Engineering Tools</h2>
       <div
-        className="card"
+        style={isHovered ? { ...styles.card, ...styles.cardHover } : styles.card}
         onClick={() => navigate('/pile-calculator')}
-        style={{ cursor: 'pointer', padding: '20px', border: '1px solid #ccc', borderRadius: '10px' }}
+        onMouseEnter={() => setIsHovered(true)}
+        onMouseLeave={() => setIsHovered(false)}
       >
-        <h3>Pile Foundation</h3>
-        <p>Click to calculate pile capacity</p>
+        <h3 style={styles.cardTitle}>Pile Foundation</h3>
+        <p style={styles.cardText}>Click to calculate pile capacity</p>
       </div>
     </div>
   );
